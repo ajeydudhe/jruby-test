@@ -32,7 +32,7 @@ public class FileEnumeratorTest
       returnedFiles.add(file.getName());
     }
     
-    assertThat(returnedFiles).containsExactly("CalculatorTest.rb", "SomeCalculatorTests.rb", "caltest.rb", "dummy_test.rb", "SampleTest.rb", "SomeDummyTests.rb");
+    assertThat(returnedFiles).contains("CalculatorTest.rb", "SomeCalculatorTests.rb", "caltest.rb", "dummy_test.rb", "SampleTest.rb", "SomeDummyTests.rb");
   }
 }
 
