@@ -1,7 +1,7 @@
 /********************************************************************
- * File Name:    FileParameter.java
+ * File Name:    JRubyTestParameter.java
  *
- * Date Created: Mar 10, 2018
+ * Date Created: Mar 24, 2018
  *
  * ------------------------------------------------------------------
  * 
@@ -10,18 +10,16 @@
  *******************************************************************/
 
 package org.expedientframework.jruby.test.common;
-
-import java.io.File;
-
+  
 /**
  * TODO: Update with a detailed description of the interface/class.
  *
  */
-public class FileParameter extends TestParameter<File>
+public class JRubyTestParameter extends TestParameter<JRubyTest>
 {
-  public FileParameter(final File file)
+  public JRubyTestParameter(final JRubyTest jrubyTest)
   {
-    super(file.getName(), file);
+    super(jrubyTest.getTestName(), jrubyTest);
   }
 }
 

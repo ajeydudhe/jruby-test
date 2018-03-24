@@ -7,7 +7,16 @@
   </parent>
   <artifactId>jruby-test-common</artifactId>
   
+  <properties>
+    <jruby-complete.version>9.1.16.0</jruby-complete.version>
+  </properties>
+      
   <dependencies>
+		<dependency>
+		    <groupId>org.jruby</groupId>
+		    <artifactId>jruby-complete</artifactId>
+		    <version>${jruby-complete.version}</version>
+		</dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>

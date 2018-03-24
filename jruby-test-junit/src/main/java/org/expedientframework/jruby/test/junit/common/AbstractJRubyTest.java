@@ -11,8 +11,9 @@
 
 package org.expedientframework.jruby.test.junit.common;
 
-import org.expedientframework.jruby.test.common.FileParameter;
-import org.expedientframework.jruby.test.common.JRubyTestFileParameterEnumerator;
+import org.expedientframework.jruby.test.common.JRubyTest;
+import org.expedientframework.jruby.test.common.JRubyTestParameter;
+import org.expedientframework.jruby.test.common.JRubyTestParameterEnumerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -22,23 +23,23 @@ import org.junit.runners.Parameterized.Parameters;
 public abstract class AbstractJRubyTest
 {
   @Parameters(name="{0}")
-  public static JRubyTestFileParameterEnumerator data()
+  public static JRubyTestParameterEnumerator data()
   {
-    return new JRubyTestFileParameterEnumerator();
+    return new JRubyTestParameterEnumerator();
   }
   
-  protected AbstractJRubyTest(final FileParameter fileParameter)
+  protected AbstractJRubyTest(final JRubyTestParameter jrubyTest)
   {
-    this.fileParameter = fileParameter;
+    this.jrubyTest = jrubyTest;
   }
   
   @Test
   public void $()
   {
-    System.out.println(this.fileParameter.getData());
+    this.jrubyTest.getData().execute();
   }
   
   // protected
-  protected final FileParameter fileParameter;
+  protected final JRubyTestParameter jrubyTest;
 }
 
