@@ -1,2 +1,4 @@
 jruby-test-common/target/
 jruby-test-common/test-output/
+jruby-test-junit/target/
+target/
