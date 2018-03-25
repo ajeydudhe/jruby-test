@@ -16,6 +16,8 @@ import static org.assertj.core.api.Assertions.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.expedientframework.jcommon.io.FileEnumerator;
 import org.testng.annotations.Test;
 
 public class FileEnumeratorTest

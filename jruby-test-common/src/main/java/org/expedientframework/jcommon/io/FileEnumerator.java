@@ -9,7 +9,7 @@
  *
  *******************************************************************/
 
-package org.expedientframework.jruby.test.common;
+package org.expedientframework.jcommon.io;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * INTERNAL CLASS. DO NOT USE.
+ * Simple file enumerator to list files recursively.
  * 
  * @author ajey_dudhe
  *

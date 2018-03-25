@@ -9,7 +9,7 @@
  *
  *******************************************************************/
 
-package org.expedientframework.jruby.test.common;
+package org.expedientframework.jcommon.test;
   
 /**
  * TODO: Update with a detailed description of the interface/class.

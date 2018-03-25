@@ -14,6 +14,9 @@ package org.expedientframework.jruby.test.common;
 import java.io.File;
 import java.util.Iterator;
 
+import org.expedientframework.jcommon.io.FileEnumerator;
+import org.expedientframework.jcommon.test.TestParameter;
+
 /**
  * TODO: Update with a detailed description of the interface/class.
  *

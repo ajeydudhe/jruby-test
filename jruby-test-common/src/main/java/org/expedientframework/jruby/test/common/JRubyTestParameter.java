@@ -10,7 +10,9 @@
  *******************************************************************/
 
 package org.expedientframework.jruby.test.common;
-  
+
+import org.expedientframework.jcommon.test.TestParameter;
+
 /**
  * TODO: Update with a detailed description of the interface/class.
  *
