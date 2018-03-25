@@ -11,6 +11,7 @@
 
 package org.expedientframework.jruby.test.common;
 
+import org.jruby.RubyClass;
 import org.jruby.RubyObject;
 import org.jruby.embed.ScriptingContainer;
 
@@ -20,26 +21,28 @@ import org.jruby.embed.ScriptingContainer;
  */
 public class JRubyTest
 {
-  public JRubyTest(final String testMethodName, final RubyObject testClassInstance, final ScriptingContainer container)
+  public JRubyTest(final String testMethodName, final RubyClass testClass, final ScriptingContainer container)
   {
     this.testMethodName = testMethodName;
-    this.testClassInstance = testClassInstance;
+    this.testClass = testClass;
     this.container = container;
   }
   
   public void execute()
   {
-    this.container.callMethod(this.testClassInstance, this.testMethodName);
+    // TODO: Ajey_Dudhe - Need to provide flexibility to use same instance for all the tests similar to TestNG.
+    // Currently, we are creating the instance per test.
+    this.container.callMethod(this.testClass.callMethod("new"), this.testMethodName);
   }
   
   public String getTestName()
   {
-    return this.testClassInstance.getMetaClass().getName() + "." + this.testMethodName;
+    return this.testClass.getName() + "." + this.testMethodName;
   }
   
   // Private
   private final ScriptingContainer container;
-  private final RubyObject testClassInstance;
+  private final RubyClass testClass;
   private final String testMethodName;
 }
 

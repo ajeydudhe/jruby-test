@@ -11,7 +11,6 @@
 
 package org.expedientframework.jruby.test.junit.common;
 
-import org.expedientframework.jruby.test.common.JRubyTest;
 import org.expedientframework.jruby.test.common.JRubyTestParameter;
 import org.expedientframework.jruby.test.common.JRubyTestParameterEnumerator;
 import org.junit.Test;
