@@ -6,21 +6,71 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>jruby-test-junit</artifactId>
-  
+  <properties>
+    <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+    <ruby-gems-dir>${basedir}/ruby_gems</ruby-gems-dir>
+    <jruby-complete.version>9.1.16.0</jruby-complete.version>
+  </properties>
   <dependencies>
     <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
     </dependency>
     <dependency>
-	    <groupId>org.expedientframework.jruby</groupId>
-	    <artifactId>jruby-test-common</artifactId>
-	    <version>${project.version}</version>
+      <groupId>org.expedientframework.jruby</groupId>
+      <artifactId>jruby-test-common</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.hamcrest</groupId>
-        <artifactId>hamcrest-core</artifactId>
-        <scope>test</scope>
-    </dependency>    
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  <profiles>
+    <profile>
+      <id>Download ruby gems</id>
+      <activation>
+        <file>
+          <missing>ruby_gems</missing>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>${exec-maven-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>Download Gem: minitest</id>
+                <phase>test-compile</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <skip>false</skip>
+                  <executable>java</executable>
+                  <mainClass>org.jruby.Main</mainClass>
+                  <arguments>
+                    <argument>-cp</argument>
+                    <argument>${settings.localRepository}/org/jruby/jruby-complete/${jruby-complete.version}/*</argument>
+                    <argument>org.jruby.Main</argument>
+                    <argument>-S</argument>
+                    <argument>gem</argument>
+                    <argument>install</argument>
+                    <argument>minitest</argument>
+                    <argument>-V</argument>
+                  </arguments>
+                  <environmentVariables>
+                    <GEM_HOME>${ruby-gems-dir}</GEM_HOME>
+                  </environmentVariables>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

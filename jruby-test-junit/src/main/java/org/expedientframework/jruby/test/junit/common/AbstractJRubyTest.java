@@ -21,7 +21,12 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public abstract class AbstractJRubyTest
 {
-  @Parameters(name="{0}")
+  /**
+   * Copy this static method in derived class if you need to control the test file enumeration
+   * and ruby test execution using {@link JRubyTestParameterEnumerator} 
+   * @return
+   */
+  @Parameters(name="{0}") // This controls the display name of the test.
   public static JRubyTestParameterEnumerator data()
   {
     return new JRubyTestParameterEnumerator();

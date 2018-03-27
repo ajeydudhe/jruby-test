@@ -23,15 +23,20 @@ import org.expedientframework.jcommon.test.TestParameter;
  */
 public class JRubyTestParameterEnumerator implements Iterable<TestParameter<JRubyTest>>
 {
-  public JRubyTestParameterEnumerator(final String rootFolder, final String[] filePatterns)
+  public JRubyTestParameterEnumerator(final String rootFolder, final String...filePatterns)
   {
     this.rootFolder = rootFolder;
     this.filePatterns = filePatterns;
   }
 
+  public JRubyTestParameterEnumerator(final String rootFolder)
+  {
+    this(rootFolder, ".*test.*\\.rb", ".*tests.*\\.rb");
+  }
+
   public JRubyTestParameterEnumerator()
   {
-    this("./src/test/ruby", new String[] {".*test\\.rb", ".*tests\\.rb"});
+    this("./src/test/ruby");
   }
 
   @Override
